@@ -18,8 +18,11 @@ app.use(express.json());
 app.use(require('./middleware/headers'));
 app.use('/test', test);
 app.use('/user', user);
+
 app.use('/log', log);
 app.use('/food', food);
+
+
 
 
 const credentials = JSON.stringify({
@@ -74,7 +77,7 @@ const credentials = JSON.stringify({
       req.write(credentials);
       req.end();
  
- }
+    }
 
 
 jwt_auth_for_token(credentials);
@@ -83,7 +86,6 @@ jwt_auth_for_token(credentials);
  * PROTECTED
  ***********/
 
-// app.use(require('./middleware/validate-session'));
 
 
 app.post('/workout', (request, response) => {
