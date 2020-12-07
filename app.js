@@ -124,7 +124,7 @@ app.post('/workout', (request, response) => {
   )
 
 
-app.listen(4500, function(){
-    console.log('Word Up');
+app.listen(process.env.PORT, () => {
+    console.log(`server is listening on port ${process.env.PORT}`);
 });
 
