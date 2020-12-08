@@ -83,7 +83,7 @@ const credentials = JSON.stringify({
     }
 
 
-// jwt_auth_for_token(credentials);
+jwt_auth_for_token(credentials);
 
 /*********
  * PROTECTED
