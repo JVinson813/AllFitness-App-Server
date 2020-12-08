@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-var CronJob = require('cron').CronJob;
+var cron = require('node-cron');
 var cors = require('cors');
 
 let express = require('express');
@@ -83,7 +83,7 @@ const credentials = JSON.stringify({
     }
 
 
-jwt_auth_for_token(credentials);
+// jwt_auth_for_token(credentials);
 
 /*********
  * PROTECTED
@@ -128,10 +128,14 @@ app.post('/workout', (request, response) => {
   }
   )
 
-//   CronJob.schedule('*/59 * * *', function () {
-//         jwt_auth_for_token(credentials);
-//      }
-//   );
+  cron.schedule('*/59 * * * *', () => {
+      console.log('what am i');
+        jwt_auth_for_token(credentials);
+     }, 
+     {
+          scheduled: true
+     }
+  );
 
 app.listen(process.env.PORT, () => {
     console.log(`server is listening on port ${process.env.PORT}`);
