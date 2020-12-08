@@ -119,7 +119,7 @@ app.post('/workout', (request, response) => {
     });
    
     req.on('error', (e) => {
-        console.log('problem with request: ' + e.message);
+        console.log('problem with request: ' + e.message + process.env.FITNESS_TOKEN);
     });
    
     // write data to request body
