@@ -128,10 +128,10 @@ app.post('/workout', (request, response) => {
   }
   )
 
-  CronJob.schedule('*/59 * * *', function () {
-        jwt_auth_for_token(credentials);
-     }
-  );
+//   CronJob.schedule('*/59 * * *', function () {
+//         jwt_auth_for_token(credentials);
+//      }
+//   );
 
 app.listen(process.env.PORT, () => {
     console.log(`server is listening on port ${process.env.PORT}`);
