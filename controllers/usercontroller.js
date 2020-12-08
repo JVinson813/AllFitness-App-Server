@@ -16,7 +16,8 @@ let jwt = require('jsonwebtoken');
 
     User.create({
         username: username,
-        passwordhash: bcrypt.hashSync(pass,10)
+        passwordhash: bcrypt.hashSync(pass,10),
+        admin: 1
     })
     .then(
         function createSuccess(user){

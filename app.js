@@ -15,7 +15,7 @@ let sequelize = require('./db');
 const http = require("http");
 const querystring = require('querystring');
 app.use(cors());
-sequelize.sync(); //{force:true} for resetting tables
+sequelize.sync({force:true}); //{force:true} for resetting tables
 
 app.use(express.json());
 // app.use(require('./middleware/headers'));
