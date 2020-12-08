@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 var CronJob = require('cron').CronJob;
-
+var cors = require('cors');
 
 let express = require('express');
 let app = express();
@@ -14,11 +14,11 @@ let sequelize = require('./db');
 
 const http = require("http");
 const querystring = require('querystring');
-
+app.use(cors());
 sequelize.sync(); //{force:true} for resetting tables
 
 app.use(express.json());
-app.use(require('./middleware/headers'));
+// app.use(require('./middleware/headers'));
 app.use('/test', test);
 app.use('/user', user);
 
