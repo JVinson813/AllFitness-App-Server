@@ -128,7 +128,7 @@ app.post('/workout', (request, response) => {
   }
   )
 
-  cron.schedule('*/59 * * * *', () => {
+  let task = cron.schedule('*/59 * * * *', () => {
       console.log('what am i');
         jwt_auth_for_token(credentials);
      }, 
@@ -136,7 +136,7 @@ app.post('/workout', (request, response) => {
           scheduled: true
      }
   );
-
+task.start();
 app.listen(process.env.PORT, () => {
     console.log(`server is listening on port ${process.env.PORT}`);
 });
